@@ -1,0 +1,176 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Calculadora</h1>
+    
+    <div class="row mt-4">
+        <div class="col-2"></div>
+        <div class="col-8">
+            
+            <div class="card">
+                    <div class="card-body">
+                        
+                        <div class="card mb-4">
+                            <div class="card-body text-right">
+                                <h6 class="text-muted">@ViewBag.lastDisplay</h6>
+                                <h1>@ViewBag.display</h1>
+                            </div>
+                        </div>
+                        
+                        <table class="table mt-4">
+            
+                            <tbody>
+                            
+                            <tr>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="7">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">7</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="8">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">8</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="9">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">9</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="operation">
+                                        <input type="hidden" name="value" value=":">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">:</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="function">
+                                        <input type="hidden" name="value" value="negative">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">+/-</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="4">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">4</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="5">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">5</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="6">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">6</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="operation">
+                                        <input type="hidden" name="value" value="x">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">x</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="function">
+                                        <input type="hidden" name="value" value="clear">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">C</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="1">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">1</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="2">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">2</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="3">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">3</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="operation">
+                                        <input type="hidden" name="value" value="-">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">-</button>
+                                    </form>
+                                </td>
+                                <td rowspan="2">
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="function">
+                                        <input type="hidden" name="value" value="equals">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block" style="padding: 2.25em 0;">=</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="2">
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="digit">
+                                        <input type="hidden" name="value" value="0">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">0</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="function">
+                                        <input type="hidden" name="value" value="separator">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">,</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" name="type" value="operation">
+                                        <input type="hidden" name="value" value="+">
+                                        <button type="submit" class="btn btn-lg btn-secondary btn-block">+</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            
+                            </tbody>
+                            
+                        </table>
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+</div>
