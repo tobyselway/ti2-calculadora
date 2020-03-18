@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,6 +12,9 @@ namespace Calculadora.Controllers
 {
     public class HomeController : Controller
     {
+
+        private static bool SHOW_FULL = true;
+        
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -19,6 +22,10 @@ namespace Calculadora.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Responde a um pedido GET feito a / com a view da calculadora com o valor 0
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Index()
         {
             HttpContext.Session.SetString("first_num", "");
@@ -36,6 +43,13 @@ namespace Calculadora.Controllers
             return View();
         }
         
+        /// <summary>
+        /// Responde a um pedido POST feito a / com a view da calculadora com o valor calculado
+        /// de acordo com o botão carregado
+        /// </summary>
+        /// <param name="type">O tipo de botão carregado</param>
+        /// <param name="value">O valor do botão carregado</param>
+        /// <returns>View</returns>
         [HttpPost]
         public IActionResult Index(String type, String value)
         {
@@ -122,17 +136,26 @@ namespace Calculadora.Controllers
                     break;
             }
 
-            ViewBag.display = HttpContext.Session.GetString("first_num") + " " +
-                              HttpContext.Session.GetString("op_selected") + " " +
-                              HttpContext.Session.GetString("second_num");
-            
+            if (!SHOW_FULL)
+            {
+                if (HttpContext.Session.GetString("op_selected") != "" && HttpContext.Session.GetString("second_num") != "")
+                {
+                    ViewBag.display = HttpContext.Session.GetString("second_num");
+                }
+                else
+                {
+                    ViewBag.display = HttpContext.Session.GetString("first_num");
+                }
+            }
+            else
+            {
+                ViewBag.display = HttpContext.Session.GetString("first_num") + " " +
+                                  HttpContext.Session.GetString("op_selected") + " " +
+                                  HttpContext.Session.GetString("second_num");
+            }
+
             ViewBag.lastDisplay = HttpContext.Session.GetString("last_expression");
             
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 
